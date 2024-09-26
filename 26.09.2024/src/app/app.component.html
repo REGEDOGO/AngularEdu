@@ -1,0 +1,28 @@
+<style>
+  :host {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+      Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+      "Segoe UI Symbol";
+    font-size: 14px;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+  }
+</style>
+
+<div class="content" role="main">
+  <h1>Suma: {{ wynik }}!</h1>
+  <input [(ngModel)]="arg1" type="number" />
+  <select [(ngModel)]="dzialanie">
+    <option value="1">+</option>
+    <option value="2">-</option>
+    <option value="3">*</option>
+    <option value="4">/</option>
+  </select>
+  <input [(ngModel)]="arg2" type="number" /><br />
+  <button (click)="oblicz()">oblicz</button> <br />
+  <small>arg1: {{ arg1 }}</small> <br />
+  <small>arg2: {{ arg2 }}</small> <br />
+  <small>wynik: {{ wynik }}</small> <br />
+</div>
