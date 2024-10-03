@@ -1,0 +1,31 @@
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css'],
+})
+export class AppComponent {
+  title = 'CodeSandbox';
+  arg1 = 100;
+  arg2 = 100;
+  operator = '1';
+
+  pies: { imie: string; rasa: string; wiek: number } = {
+    imie: 'Niko',
+    rasa: 'Jamnik',
+    wiek: 4,
+  };
+
+  oblicz() {
+    if (this.operator == '1') {
+      return this.arg1 + this.arg2;
+    } else if (this.operator == '2') {
+      return this.arg1 - this.arg2;
+    } else if (this.operator == '3') {
+      return this.arg1 * this.arg2;
+    } else {
+      return this.arg1 / this.arg2;
+    }
+  }
+}

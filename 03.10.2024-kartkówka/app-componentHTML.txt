@@ -1,0 +1,29 @@
+<style>
+  :host {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+      Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+      "Segoe UI Symbol";
+    font-size: 14px;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+  }
+</style>
+
+<div class="content" role="main">
+  <h2>zad. 1</h2>
+  <input type="number" [(ngModel)]="arg1" />
+  <input type="number" [(ngModel)]="arg2" />
+  <select [(ngModel)]="operator">
+    <option value="1">+</option>
+    <option value="2">-</option>
+    <option value="3">*</option>
+    <option value="4">/</option>
+  </select>
+  <p>Wynik: {{ oblicz() }}</p>
+  <h2>zad. 2</h2>
+  <p>imie: {{ pies.imie }}</p>
+  <p>rasa: {{ pies.rasa }}</p>
+  <p>wiek: {{ pies.wiek }}</p>
+</div>
