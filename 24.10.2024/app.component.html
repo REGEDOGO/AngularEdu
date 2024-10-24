@@ -1,0 +1,90 @@
+<style>
+  :host {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+      Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+      "Segoe UI Symbol";
+    font-size: 14px;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+</style>
+
+<div class="content" role="main">
+  <h1>Pętle</h1>
+  <h2>zwykłe</h2>
+  <ul>
+    <li *ngFor="let number of [3, 4, 7]">
+      aktualna wartość tablicy to: {{ number }}
+    </li>
+  </ul>
+  <h2>z wieloma argumentami</h2>
+  <ul>
+    <li *ngFor="let number of [3, 4, 7]; let id = index; let parz = even">
+      id: {{ id }} | wartość: {{ number }} | parzysta: {{ parz }}
+    </li>
+  </ul>
+  <h2>licznik w pętli</h2>
+  <ul>
+    <li *ngFor="let number of counter(5); let id = index">
+      wykonano {{ id + 1 }} razy
+    </li>
+  </ul>
+  <h2>generowanie tablic</h2>
+  <table border="1">
+    <tr>
+      <th *ngFor="let title of jakisTitle">
+        {{ title }}
+      </th>
+    </tr>
+    <tr>
+      <td *ngFor="let string of auta">
+        {{ string }}
+      </td>
+    </tr>
+  </table>
+  <h2>tabliczka mnożenia</h2>
+  <table border="1">
+    <tr *ngFor="let kol of counter(10); let idK = index">
+      <td *ngFor="let wier of counter(10); let idW = index">
+        {{ (idK + 1) * (idW + 1) }}
+      </td>
+    </tr>
+  </table>
+  <h2>odczytywanie z pliku</h2>
+  <table border="1">
+    <tr>
+      <th *ngFor="let x of brainrot">
+        {{ x.nazwa }}
+      </th>
+    </tr>
+    <tr>
+      <td *ngFor="let x of brainrot">
+        {{ x.wartosc }}
+      </td>
+    </tr>
+  </table>
+  <h2><i>nowoczesny</i> for</h2>
+  <div style="border: 1px black dotted">
+    @for (item of brainrot; track $index) {
+    <p>{{ item.nazwa }}</p>
+    } @empty {
+    <p>pustki</p>
+    }
+  </div>
+  <div style="border: 1px black dotted">
+    @for (item of pusta; track $index) {
+    {{ item }}
+    } @empty {
+    <p>tabela jest pusta</p>
+    }
+  </div>
+  <div>
+    <!-- COŚ NIE DZIAŁA, HELP
+      @for (item of brainrot; track $index; count item.wartosc) {
+
+    } @empty {
+
+    } -->
+  </div>
+</div>
