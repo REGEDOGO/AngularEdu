@@ -1,0 +1,47 @@
+<style>
+  :host {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+      Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+      "Segoe UI Symbol";
+    font-size: 14px;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+  }
+</style>
+
+<div class="content" role="main">
+  <h1>Temat: {{ title }}!</h1>
+  <h2>Zobacz skrypt, aby dokładnie zrozumieć działanie</h2>
+
+  <p *ngIf="true">podstawowy If</p>
+
+  <p *ngIf="5 > 3">5 > 3</p>
+  <!-- wypisze -->
+
+  <p *ngIf="5 < 3">5 < 3</p>
+  <!-- nie wypisze -->
+
+  <p *ngIf="zmiennaBool">z użyciem zmiennej</p>
+  <!-- 1 == true -->
+
+  <p *ngIf="author.age > 15">rege jest legalny</p>
+  <!-- pobiera z obiektu author -->
+
+  <!-- budowa z else: -->
+  <!-- *ngIf="Warunek1; else NazwaDrugiegoObiektu" -->
+  <p *ngIf="5 > 3; else templateName1">5 > 3 (else)</p>
+  <ng-template #templateName1>5 !> 3 (else)</ng-template>
+  <!-- ===== -->
+  <p *ngIf="5 < 3; else templateName2">5 < 3 (else)</p>
+  <ng-template #templateName2>5 !< 3 (else)</ng-template><br />
+
+  <!-- działanie "then" -->
+  <p *ngIf="author.name == 'rege'; then Spelnia; else nieSpelnia"></p>
+  <ng-template #Spelnia>autorem jest rege</ng-template>
+  <ng-template #nieSpelnia>autor to nie jest rege</ng-template><br />
+
+  <!-- odpowiednik "onClick" -->
+  <input type="button" (click)="onClick()" />
+</div>
