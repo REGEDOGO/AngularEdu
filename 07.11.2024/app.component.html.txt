@@ -7,41 +7,74 @@
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+  }
+  div > div {
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 </style>
 
 <div class="content" role="main">
-  <h1>Temat: {{ title }}!</h1>
-  <h2>Zobacz skrypt, aby dokładnie zrozumieć działanie</h2>
+  <div>
+    <h1>Temat: {{ title }}!</h1>
+    <h2>Zobacz skrypt, aby dokładnie zrozumieć działanie</h2>
+  </div>
 
-  <p *ngIf="true">podstawowy If</p>
+  <ul>
+    <li>
+      <p *ngIf="true">podstawowy If</p>
+    </li>
 
-  <p *ngIf="5 > 3">5 > 3</p>
-  <!-- wypisze -->
+    <li>
+      <p *ngIf="5 > 3">5 > 3</p>
+      <!-- wypisze -->
+      <p *ngIf="5 < 3">5 < 3</p>
+      <!-- nie wypisze -->
+    </li>
 
-  <p *ngIf="5 < 3">5 < 3</p>
-  <!-- nie wypisze -->
+    <li>
+      <p *ngIf="zmiennaBool">z użyciem zmiennej</p>
+      <!-- 1 == true -->
+    </li>
 
-  <p *ngIf="zmiennaBool">z użyciem zmiennej</p>
-  <!-- 1 == true -->
+    <li>
+      <p *ngIf="author.age > 15">rege jest legalny</p>
+      <!-- pobiera z obiektu author -->
+    </li>
 
-  <p *ngIf="author.age > 15">rege jest legalny</p>
-  <!-- pobiera z obiektu author -->
+    <li>
+      <!-- budowa z else: -->
+      <!-- *ngIf="Warunek1; else NazwaDrugiegoObiektu" -->
+      <p *ngIf="5 > 3; else templateName1">5 > 3 (else)</p>
+      <ng-template #templateName1>5 !> 3 (else)</ng-template>
+      <!-- ===== -->
+      <p *ngIf="5 < 3; else templateName2">5 < 3 (else)</p>
+      <ng-template #templateName2>5 !< 3 (else)</ng-template><br />
+    </li>
 
-  <!-- budowa z else: -->
-  <!-- *ngIf="Warunek1; else NazwaDrugiegoObiektu" -->
-  <p *ngIf="5 > 3; else templateName1">5 > 3 (else)</p>
-  <ng-template #templateName1>5 !> 3 (else)</ng-template>
-  <!-- ===== -->
-  <p *ngIf="5 < 3; else templateName2">5 < 3 (else)</p>
-  <ng-template #templateName2>5 !< 3 (else)</ng-template><br />
+    <li>
+      <!-- działanie "then" -->
+      <p *ngIf="author.name == 'rege'; then Spelnia; else nieSpelnia"></p>
+      <ng-template #Spelnia>autorem jest rege</ng-template>
+      <ng-template #nieSpelnia>autor to nie jest rege</ng-template><br />
+    </li>
 
-  <!-- działanie "then" -->
-  <p *ngIf="author.name == 'rege'; then Spelnia; else nieSpelnia"></p>
-  <ng-template #Spelnia>autorem jest rege</ng-template>
-  <ng-template #nieSpelnia>autor to nie jest rege</ng-template><br />
+    <li>
+      <!-- odpowiednik "onClick" -->
+      <input type="button" (click)="onClick()" value="change" /><br />
+      <p *ngIf="change; else disactivated">włączony</p>
+      <ng-template #disactivated>wyłączony<br /></ng-template>
+    </li>
 
-  <!-- odpowiednik "onClick" -->
-  <input type="button" (click)="onClick()" />
+    <li>
+      <!-- konstrukcja IF jaką wszyscy znamy i kochamy -->
+      @if (author.name == "rege"){
+      <p>Nazwa authora to rege</p>
+      } @else {
+      <p>Nazwa authora jest inna niż "rege"</p>
+      }
+    </li>
+  </ul>
 </div>
