@@ -1,0 +1,35 @@
+<style>
+  :host {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+      Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+      "Segoe UI Symbol";
+    font-size: 14px;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+  }
+</style>
+
+<div class="content" role="main">
+  <div>
+    <p>Podaj ilość wierszy <input [(ngModel)]="wiersze" type="number" /></p>
+    <p>Podaj ilość kolumn <input [(ngModel)]="kolumny" type="number" /></p>
+    <p>
+      Podaj wartość dzielnika <input [(ngModel)]="dzielnik" type="number" />
+    </p>
+  </div>
+
+  <table border="1">
+    <tr *ngFor="let kol of powtorz(wiersze); let idW = index">
+      <td
+        *ngFor="let wier of powtorz(kolumny); let idK = index"
+        style="width: 20px; height: 20px"
+      >
+        <i *ngIf="(idW * kolumny + idK + 1) % dzielnik == 0">
+          {{ idW * kolumny + idK + 1 }}
+        </i>
+      </td>
+    </tr>
+  </table>
+</div>
