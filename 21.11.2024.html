@@ -1,0 +1,25 @@
+<style>
+  :host {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+      Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+      "Segoe UI Symbol";
+    font-size: 14px;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+</style>
+<!--
+  [(ngSwitch)]="wartość"
+  *ngSwitchCase="warunek"
+  *ngSwitchDefault
+-->
+<div class="content" role="main">
+  <input type="number" [(ngModel)]="switchValue" />
+  <div [ngSwitch]="switchValue">
+    <p *ngSwitchCase="1">wartość = 1</p>
+    <p *ngSwitchCase="2">wartość = 2</p>
+    <p *ngSwitchCase="3">wartość = 3</p>
+    <p *ngSwitchDefault>wartość poza zasięgiem</p>
+  </div>
+</div>
