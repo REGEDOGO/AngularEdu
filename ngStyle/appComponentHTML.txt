@@ -1,0 +1,40 @@
+<style>
+  :host {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+      Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+      "Segoe UI Symbol";
+    font-size: 14px;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+</style>
+<!--
+  [(ngSwitch)]="wartość"
+  *ngSwitchCase="warunek"
+  *ngSwitchDefault
+-->
+<div class="content" role="main">
+  <h3>
+    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquid laboriosam
+    fugiat esse repudiandae vel, harum voluptatibus pariatur amet minus incidunt
+    obcaecati consequuntur veritatis, laudantium hic odit. Ex, fuga ipsum.
+    Dolorum.
+  </h3>
+  <h2>
+    <div [ngStyle]="{ 'background-color': bkColor, color: fontColor }">
+      Zmieniony wygląd
+    </div>
+  </h2>
+  <br />
+  <button (click)="zmien()">Zmień kolor tła</button>
+  <h2
+    [ngStyle]="{
+      'font-size.%': licznik * 10 + 200,
+      color: 'red',
+      'background-color': kolory[licznik % 4]
+    }"
+  >
+    Zmieniony nagłówek
+  </h2>
+</div>
