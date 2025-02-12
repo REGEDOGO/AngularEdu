@@ -1,0 +1,15 @@
+div > * {
+  background-color: lightcoral;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+div {
+  height: 33vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+nav {
+  width: 100vw;
+}
